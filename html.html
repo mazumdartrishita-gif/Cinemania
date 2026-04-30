@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="confetti"></canvas>
+
+    <div class="shell">
+        <!-- Welcome screen -->
+        <div id="s-welcome" class="screen active">
+            <div class="ticket">
+                <div class="tc tl"></div>
+                <div class="tc tr"></div>
+                <div class="tc bl"></div>
+                <div class="tc br"></div>
+
+                <div class="t-body">
+                    <div class="logo">
+                        <div class="badge"><img src="popcorn.svg" alt="popcorn" class="icon"> Now Playing</div>
+                    </div>
+
+                    <div class="marquee-wrap">
+                        <div class="marquee-track">
+                            <span class="mi"><img src="star.svg" alt="star" class="icon"></span><span class="mi"><img
+                                    src="clapper.svg" alt="clapper" class="icon"></span><span class="mi"><img
+                                    src="movie.svg" alt="movie" class="icon"></span>
+                            <span class="mi"><img src="trophy.svg" alt="trophy" class="icon"></span><span
+                                class="mi"><img src="performing-arts.svg" alt="performing arts"
+                                    class="icon"></span><span class="mi"><img src="tv.svg" alt="tv" class="icon"></span>
+                            <span class="mi"><img src="star.svg" alt="star" class="icon"></span><span class="mi"><img
+                                    src="clapper.svg" alt="clapper" class="icon"></span><span class="mi"><img
+                                    src="movie.svg" alt="Movies" class="icon"></span>
+                            <span class="mi"><img src="trophy.svg" alt="trophy" class="icon"></span><span
+                                class="mi"><img src="performing-arts.svg" alt="performing arts"
+                                    class="icon"></span><span class="mi"><img src="tv.svg" alt="tv" class="icon"></span>
+                            <span class="mi"><img src="star.svg" alt="star" class="icon"></span><span class="mi"><img
+                                    src="clapper.svg" alt="clapper" class="icon"></span><span class="mi"><img
+                                    src="movie.svg" alt="movie" class="icon"></span>
+                            <span class="mi"><img src="trophy.svg" alt="trophy" class="icon"></span><span
+                                class="mi"><img src="performing-arts.svg" alt="performing arts"
+                                    class="icon"></span><span class="mi"><img src="tv.svg" alt="tv" class="icon"></span>
+                            <span class="mi"><img src="star.svg" alt="star" class="icon"></span><span class="mi"><img
+                                    src="clapper.svg" alt="clapper" class="icon"></span><span class="mi"><img
+                                    src="movie.svg" alt="movie" class="icon"></span>
+                            <span class="mi"><img src="trophy.svg" alt="trophy" class="icon"></span><span
+                                class="mi"><img src="performing-arts.svg" alt="performing arts"
+                                    class="icon"></span><span class="mi"><img src="tv.svg" alt="tv" class="icon"></span>
+                        </div>
+                    </div>
+
+                    <h1 class="hero-title">CineMania</h1>
+                    <p class="hero-tag">Are you a movie buff? Let's find out.</p>
+                    <p class="hero-sub">
+                        10 interesting questions about blockbusters, iconic quotes, celeb trivia &amp; pop culture.
+                        Grab your popcorn! <img src="popcorn.svg" alt="popcorn" class="icon">
+                    </p>
+
+                    <div class="chips">
+                        <div class="chip">
+                            <div class="cd chip-yellow"></div>10 questions
+                        </div>
+                        <div class="chip">
+                            <div class="cd chip-orange"></div>20s per Q
+                        </div>
+                        <div class="chip">
+                            <div class="cd chip-pink"></div>Pop culture &amp; Movies
+                        </div>
+                    </div>
+
+                    <button class="btn-cta" id="start-btn"><img src="clapper.svg" alt="clapper" class="icon"> Roll the
+                        credits</button>
+                </div>
+
+                <div class="t-strip">
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz screen -->
+        <div id="s-quiz" class="screen">
+            <div class="ticket" id="quiz-card">
+                <div class="tc tl"></div>
+                <div class="tc tr"></div>
+                <div class="tc bl"></div>
+                <div class="tc br"></div>
+
+                <div class="t-body">
+                    <div class="quiz-top">
+                        <div class="score-pill"><img src="star.svg" alt="star" class="icon"> Score <span class="sn"
+                                id="spn">0</span></div>
+                        <span class="q-ctr">Q<em id="qnum">1</em>/10</span>
+                        <div class="timer-wrap"><img src="timer.svg" alt="timer" class="icon"><span class="tval"
+                                id="tval">20</span></div>
+                    </div>
+
+                    <div class="pbar">
+                        <div class="pfill" id="prog"></div>
+                    </div>
+
+                    <div class="q-cat" id="qcat"><img src="clapper.svg" alt="clapper" class="icon"> Movies</div>
+                    <p class="q-text" id="qtext">Loading...</p>
+                    <div class="opts" id="opts"></div>
+                    <div class="fb" id="fb"></div>
+
+                    <div class="next-row">
+                        <button class="btn-next" id="btn-next">Next <img src="arrow-right.svg" alt="right arrow-right"
+                                class="icon"></button>
+                    </div>
+                </div>
+
+                <div class="t-strip">
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                    <span class="sl">CineMania · Pop Culture Edition</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results screen -->
+        <div id="s-results" class="screen">
+            <div class="ticket">
+                <div class="tc tl"></div>
+                <div class="tc tr"></div>
+                <div class="tc bl"></div>
+                <div class="tc br"></div>
+
+                <div class="t-body">
+                    <div class="logo">
+                        <div class="badge"><img src="trophy.svg" alt="trophy" class="icon"> Final Score</div>
+                    </div>
+
+                    <span class="remoji" id="remoji"><img src="trophy.svg" alt="trophy" class="icon"></span>
+                    <h2 class="rtitle" id="rtitle">Absolute Cinema!</h2>
+                    <p class="rsub" id="rsub">You are the main character.</p>
+
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 120 120">
+                            <defs>
+                                <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#FF6B2B"></stop>
+                                    <stop offset="100%" stop-color="#FFE135"></stop>
+                                </linearGradient>
+                            </defs>
+                            <circle class="ring-bg" cx="60" cy="60" r="56"></circle>
+                            <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="56"></circle>
+                        </svg>
+
+                        <div class="ring-in">
+                            <div>
+                                <span class="rscore" id="rscore">0/10</span>
+                                <span class="rlbl">Score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sgrid">
+                        <div class="sbox">
+                            <span class="semoji"><img src="check-mark-button.svg" alt="check" class="icon"></span>
+                            <span class="sval" id="bdc">0</span>
+                            <span class="skey">Correct</span>
+                        </div>
+                        <div class="sbox">
+                            <span class="semoji"><img src="cross-mark-button.svg" alt="cross" class="icon"></span>
+                            <span class="sval" id="bdw">0</span>
+                            <span class="skey">Wrong</span>
+                        </div>
+                    </div>
+
+                    <div class="rbtns">
+                        <button class="btn-cta" id="restart-btn"><img src="rotate-ccw.svg" alt="retryS" class="icon">
+                            Play Again</button>
+                        <button class="btn-out" id="share-btn"><img src="share.svg" alt="share" class="icon">
+                            Share</button>
+                    </div>
+                </div>
+
+                <div class="t-strip">
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                    <div class="sd"></div>
+                    <span class="sl">You did it! · CineMania</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
